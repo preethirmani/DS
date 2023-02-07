@@ -1,22 +1,20 @@
-var array = [1,2,3,4,5,6,7,8,9,10];
-function funcBinary(array, target) {
-  var first = 0;
-  var last = array.length-1;
-  while(first <= last) {
-    var midPoint = Math.floor((first + last) /2);
+const binarySearch = (array, target) => {
+  var rightPointer = array.length-1;
+  var leftPointer = array[0];
+  var midpointer = 0;
 
-    if(array[midPoint] ===  target) {
-      return midPoint;
-    } else if(array[midPoint] < target) {
-      first = midPoint + 1;
-    } else
-    {
-      last = midPoint - 1;
+  for(var i = 0 ; i < array.length; i++) {
+    midpointer = Math.floor(rightPointer + leftPointer) / 2;
+    if(array[midpointer] === target) {
+      return array[midpointer];
+    } else if(array[midpointer] > target) {
+      rightPointer = midpointer - 1;
+    } else if(array[midpointer < target]) {
+      leftPointer = midpointer + 1;
     }
   }
-  
+
   return 'Target Not Found';
 }
 
-var result = funcBinary(array, 10);
-console.log('Result:: ' + result);
+binarySearch([4,7,13,28,21,30], 7);
