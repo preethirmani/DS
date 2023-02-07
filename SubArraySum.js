@@ -33,5 +33,9 @@ console.log('Indices::'+result3);
 var result4 = subArraySum([1, 4, 20, 3, 10, 5], 100);
 console.log('Indices::'+result4);
 
+var result5 = subArraySum([1,2,3,4,5,6,7,8,9,10], 15);
+console.log('Indices::'+result5);
+
+
 
 
