@@ -36,6 +36,9 @@ console.log('Indices::'+result4);
 var result5 = subArraySum([1,2,3,4,5,6,7,8,9,10], 15);
 console.log('Indices::'+result5);
 
+var result6 = subArraySum([10,2,-2,-20,10], -10);
+console.log('Result6 Indices::'+result6);
+
 
 
 
