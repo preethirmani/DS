@@ -1,44 +1,38 @@
-var minRemoveToMakeValid = function(s) {
-    let lp = 0;
-    let rp = s.length - 1;
-    while(lp < rp) {
-      if(str[rp] == '(' || str[rp] == ')') {
-        if(str[rp] == '(') {
-          str = str[rp].replace('(','');
-          rp -= 1;
-        } 
-       if(str[rp] == ')' && str[lp] == '(') {
-          lp += 1;
-          rp -= 1;
-        }
-        if(str[lp] != '(' || str[lp] != ')') {
-          lp += 1;
-        }
-        
-      }else {
-        if(str[lp] == '(' || str[lp] == ')') {
-          if(str[lp] == ')') {
-            str = str.replace(str[lp],'');
-            lp += 1;
-            rp -= 1;
-          } else {
-            if(str[lp] == '(') {
-              rp -= 1;
-            }
-          }
-        }
+//LeetCode 1249 Minimum Remove to make valid Paranthesis
+/**
+ * Example 1:
+
+Input: s = "lee(t(c)o)de)"
+Output: "lee(t(c)o)de"
+Explanation: "lee(t(co)de)" , "lee(t(c)ode)" would also be accepted.
+Example 2:
+
+Input: s = "a)b(c)d"
+Output: "ab(c)d"
+ */
+
+function minRemove(s) {
+  let stack = [];
+  let str = s.split('');
+  for(let i = 0; i < str.length; i++) {
+    if(str[i] === '(') {
+      stack.push(i);
+    }
+    if(str[i] === ')') { 
+      if(stack.length === 0) {
+        str[i] = '';
+       
+      } else {
+        stack.pop();
       }
     }
-    console.log(`lp : ${lp} , rp : ${rp}`);
-    return s;
-};
-var str = 'true'
-for(let i = 0; i < str.length; i++ ){
-  if(str[i] == 'u') {
-    console.log('inside if')
-    str = str.replace(str[i],'')
   }
-  console.log(str[i]);
+    for(let i = 0 ; i < stack.length; i++) {
+      let index = stack[i];
+      str[index] = '';
+    }
+    return str.join('');
 }
 
-//console.log(minRemoveToMakeValid(')lee(t(c)o)de)'));
+console.log(minRemove("lee(t(c)o)de)"))
+console.log(minRemove('))(('));
