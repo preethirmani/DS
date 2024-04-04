@@ -19,11 +19,30 @@ console.log(root);
 
 
 function inorder(root) {
- if(root === null) return;
- inorder(root.left);
+ if(root === null) {
+ 
+  return;
+ }
+ if(root.left) inorder(root.left);
  console.log(root.val);
- inorder(root.right);
+ if(root.right) inorder(root.right);
+
 
 }
 
+function inorderLoop(root) {
+  let stack = [];
+  let current = root;
+  while(current != null || stack.length > 0) {
+    while(current != null) {
+      stack.push(current);
+      current = current.left;
+    }
+    current  = stack.pop();
+    console.log(current.val);
+    current = current.right;
+  }
+}
+
 console.log(inorder(root));
+console.log(inorderLoop(root));
