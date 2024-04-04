@@ -11,7 +11,10 @@ function isValidSubSequence(array, sequence) {
   for(var i = 0; i < array.length; i++) {
     if(sequence[indx] === array[i]) {
       indx++;
+    }else {
+      false;
     }
+
   }
   return sequence.length == indx;
 
