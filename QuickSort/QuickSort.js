@@ -17,7 +17,7 @@ function recursiveSort(arr, lowIndex, highIndex) {
     return arr;
   }
   
-  var pivot = arr[highIndex];
+  var pivot = arr[highIndex]; 
   var leftPointer = lowIndex;
   var rightPointer = highIndex - 1;
 
