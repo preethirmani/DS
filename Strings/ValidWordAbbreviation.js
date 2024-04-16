@@ -12,25 +12,22 @@ function validWordAbbreviation(word, abb) {
    
     
     if(/[0-9]/.test(abb[ap])) {
-      console.log('if')
       let steps = 0;
       if(abb[ap] === '0') return false;
-
       while(ap < abb.length && /[0-9]/.test(abb[ap])) {
         steps = steps * 10 + parseInt(abb[ap]);
         ap++;
       }
-     
       wp = steps + wp;
-     
     } else {    
-      if(word[wp] != abb[ap]) return false;
+      if(word[wp] != abb[ap]) {
+        return false;
+      }
+      wp++;
+      ap++;
     }
-    wp++;
-    ap++; 
   }
   return (wp === word.length && ap === abb.length);
 }
 
-console.log(validWordAbbreviation('substitution', 's10n'));
-console.log(validWordAbbreviation('internationalization', 'i12iz4n'));
+console.log(validWordAbbreviation('internationalization', 'i5a11o1')); // true
