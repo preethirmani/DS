@@ -6,6 +6,9 @@ function permutations(str) {
     if(l == r) console.log(str); 
     else {
       for(let i = l; i <= r; i++) {
+        if(i > 0 && str[i] == str[i-1]) {
+          continue;
+        }
         str = swap(str, l, i);
         generatePermutaions(str, l + 1, r);
         str = swap(str, l, i);
@@ -25,3 +28,4 @@ function swap(str, i, j) {
 }
 
 console.log(permutations('ABC'));
+console.log(permutations('AAB'));
