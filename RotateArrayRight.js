@@ -15,6 +15,5 @@ function rotateArray(nums, k){
 
 }
 
-rotateArray([1,2,3,4,5,6,7], 3);
-//rotateArray([1,2,3,4,5,6,7], 3) => [5,6,7,1,2,3,4]
+rotateArray([1,2,3,4,5,6,7], 3); // [4,5,6,7,1,2,3]
 

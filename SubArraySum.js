@@ -1,16 +1,16 @@
-function subArraySum(arr, actualSum) {
-  var pointer1 = 0;
-  var pointer2 = 0;
-  var currSum = arr[pointer2];
+function subArraySum(arr, actualSum) {  //[1, 4, 20, 3, 10, 5], 19
+  var pointer1 = 0; 
+  var pointer2 = 0;  
+  var currSum = arr[pointer2]; //1
 
   if(arr.length > 0) {
-      while( pointer2 <= arr.length) {
+      while( pointer2 <= arr.length) { //p2 = 2; p1 = 1 cSum = 16
             if(currSum < actualSum) {
-              pointer2++;
-              currSum = currSum + arr[pointer2];
+              pointer2++; 
+              currSum = currSum + arr[pointer2]; 
           } else if (currSum > actualSum) {
-            currSum = currSum - arr[pointer1];
-            pointer1++;
+            currSum = currSum - arr[pointer1]; //13-1 = 12
+            pointer1++; //1
           }
             else if (currSum == actualSum) {
           return [pointer1, pointer2];     
