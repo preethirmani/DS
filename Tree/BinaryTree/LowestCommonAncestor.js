@@ -22,13 +22,21 @@ node.right.right = new TreeNode(8);
 function lowestCommonAncestor(root, p, q) {
   
   function dfs(node) {
-    console.log('node', node);
-        if(node === null)  return null;
-        if(node === p || node === q) return node;
+   
+        if(node === null)  {
+          console.log('Node is null');
+          return null;
+        }
+        
+        if(node.val === p || node.val === q) {
+          console.log('Node is :', node.val);
+          return node.val;
+        }
+      
         const left = dfs(node.left);
         const right = dfs(node.right);
 
-        if(left && right) return node;
+        if(left && right) return node.val;
         if(!left) return right;
         if(!right) return left;
     }
