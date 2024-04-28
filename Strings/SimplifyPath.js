@@ -11,7 +11,29 @@ The path only contains the directories on the path from the root directory to th
 Return the simplified canonical path.
 
  */
-
+//    /a/./b/../../c/
 var  simplifyPath = (path) => {
-
+  console.log('Path::', path);
+  let dirs = path.split('/'); // 'a', '.', 'b','..','..',c
+  console.log('dirs', dirs);
+  const stack = [];
+  for(let dir of dirs) {
+    console.log('dir:',dir);
+    if(dir == '' || dir == '.') {
+      continue;
+    } else if(dir == '..') {
+      stack.pop();
+    }
+    else {
+  
+      stack.push(dir); 
+    }
+  }
+  console.log(stack);
+return '/' + stack.join('/');
 }
+
+
+//console.log(simplifyPath(path = "/home/"));
+console.log(simplifyPath(path = "/a/./b/../../c/"));
+//console.log(simplifyPath(path = "/home//foo/"));
