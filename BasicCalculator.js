@@ -30,7 +30,7 @@ function basicCalculator(s) {//"3+2*2"
 
   for(let i  = 0; i < s.length; i++) {
     let char = s[i];
-    if(!isNaN(char) && char != '') {
+    if(!isNaN(char) && char != '' && char != ' ') {
       num = num * 10 + parseInt(char); //3
     }
 
@@ -52,3 +52,5 @@ function basicCalculator(s) {//"3+2*2"
 }
 
 console.log(basicCalculator('3+2*2'));
+console.log(basicCalculator(s = " 3/2 "));
+console.log(basicCalculator(s = " 3+5 / 2 "));

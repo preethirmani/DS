@@ -38,3 +38,31 @@ function permutations(nums) {
 }
 
 console.log(permutations([1, 1, 2]));
+
+
+function permuteUnique(nums) { //[1,1,2]
+   const result = [];
+   const visited = new Array(nums.length).fill(false); //[false, false, false]
+
+   function backtrack(temp) {
+    if(temp.length === nums.length) {
+        result.push([...temp]);
+        return;
+    }
+    for(let i = 0; i < nums.length; i++) {
+        if(visited[i] || i > 0 && nums[i] === nums[i-1] && !visited[i-1]) {
+            continue;
+        }
+        visited[i] = true;
+        temp.push(nums[i]);
+        backtrack(temp);
+        temp.pop();
+        visited[i] = false;
+    }
+   }
+backtrack([]);
+return result;
+
+}
+
+console.log(permuteUnique([1,1,2]));
