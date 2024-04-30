@@ -41,6 +41,7 @@ function basicCalculator(s) {//"3+2*2"
         stack.push(-num);
       } else if(sign === '*') {
         stack.push(stack.pop() * num);
+        console.log('stack;;', stack);
       } else if(sign === '/') {
         stack.push(Math.trunc(stack.pop() / num));
       }
@@ -51,6 +52,6 @@ function basicCalculator(s) {//"3+2*2"
   return stack.reduce((acc , curr) => acc + curr, 0)
 }
 
-console.log(basicCalculator('3+2*2'));
-console.log(basicCalculator(s = " 3/2 "));
-console.log(basicCalculator(s = " 3+5 / 2 "));
+console.log(basicCalculator('3*2+2'));
+//console.log(basicCalculator(s = " 3/2 "));
+//console.log(basicCalculator(s = " 3+5 / 2 "));
