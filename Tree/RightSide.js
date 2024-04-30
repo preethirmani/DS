@@ -1,32 +1,32 @@
 class TreeNode {
-  constructor(val) {
-    this.val = val;
-    this.right = null;
-    this.left = null;
+  constructor(val, left, right) {
+     this.val = (val===undefined ? 0 : val)
+     this.left = (left===undefined ? null : left)
+     this.right = (right===undefined ? null : right)
   }
-}
+ }
 
-const node = new TreeNode(1);
-node.left = new TreeNode(2);
-node.right = new TreeNode(3);
-node.left.right = new TreeNode(5);
-node.right.right = new TreeNode(4);
+const node = new TreeNode(1, 2, 3);
+console.log('node:', node);
 
-//console.log('node', node);
+var rightSideView = function(root) {
+    if(!root) return [];
+   let result = [];
+   let queue = [root]; [1]
 
-const node1 = new TreeNode(1);
-node1.right = new TreeNode(2);
-
-function rightSide(node) {
-  let result = [];
-    let queue = [node];
-  
-   while(queue.length > 0) {
-     let current = queue.shift();
-     result.push(current.val);
-     if(current.right) queue.push(current.right); 
-   }
+  while(queue.length > 0) {
+    //to calculate the number of level. 
+    const levelSize = queue.length; //2
+    let rightmost = null;
+    for(let i = 0; i < levelSize; i++) {
+        const node = queue.shift(); //node = 2 ; queue = [2,3] ; result = [1]
+        rightmost = node.val; //1
+        if(node.left) queue.push(node.left); 
+        if(node.right) queue.push(node.right);
+    }
+    result.push(rightmost)
+  }
     return result;
-}
+   
+};
 
-console.log(rightSide(node1));
