@@ -8,36 +8,37 @@ The length of a clear path is the number of visited cells of this path.
 
  */
 
-function shortestPath(grid) {
-  let n = grid.length;
-  if(grid[0][0] === 1 || grid[n-1][n-1] == 1) return -1;
+function shortestPath(grid) { // [ [0,1],[1,0] ];
+  let n = grid.length; // 2
+ if(grid[0][0] === 1 || grid[n-1][n-1] === 1) return -1; 
 
-  let queue = [[0,0,1]]; //[x,y,dist]
+ const dirs = [
+  [-1,-1], [-1,0], [-1,1],
+  [0,-1], [0,0], [0,1],
+  [1,-1], [1,0], [1,1]
+ ];
 
-  const dirs = [                   //directions matrix
-    [-1,-1], [-1,0], [-1,1],
-    [0,-1], [0,0], [0,1],
-    [1,-1], [1,0], [1,1]
-  ] 
+ const queue = [[0,0,1]];
 
-  grid[0][0] = 1;
+ grid[0][0] = 1; //marking first grid as visited; // [[1,1], [1,0]]
 
-  while(queue.length > 0) {
-    const [x,y,dist] = queue.shift();
+ while(queue. length > 0) {
+  const [x,y, dist] = queue.shift(); // [1,1,2]
 
-    if(x === n-1 && y === n-1) return dist;
+  if(x === n-1 && y === n-1) return dist; 
 
-    for(const [dx, dy] of dirs) {
-      nx = x + dx;
-      ny = y + dy;
+  for(const [dx,dy] of dirs) {
+    let nx = x + dx; // 1
+    let ny = y + dy; // 1
 
-      if(nx >= 0 && nx < n && ny >= 0 && ny < n && grid[nx][ny] === 0) {
-        queue.push([nx,ny, dist + 1]);
-        grid[nx][ny] = 1
-      }
+    if(nx >= 0 && nx < n && ny >= 0 && nx < n  && ny < n && grid[nx][ny] === 0) {
+      queue.push([nx, ny, dist+1]); //[1,1,2]
+      grid[nx][ny] = 1; // grid = [[1,1] , [1,1]]
     }
   }
-  return -1;
+ }
+ return -1;
+
 }
 
 console.log(shortestPath([[0,1], [1,0]]));
