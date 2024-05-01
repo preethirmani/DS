@@ -36,4 +36,5 @@ function firstMissingInteger(nums) { // nums = [0, 1, 2, 3] output = [false, fal
 
 }
 
-console.log(firstMissingInteger([0,1,2,3]))
+console.log(firstMissingInteger([0,1,2,3]));
+console.log(firstMissingInteger([1,2,3,4,5,6]));
