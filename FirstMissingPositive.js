@@ -22,3 +22,18 @@ Constraints:
 1 ≤ arr.length ≤ MAX_INT
 0 ≤ arr[i] ≤ MAX_INT for every i, 0 ≤ i < MAX_INT
 [output] integer */
+
+
+function firstMissingInteger(nums) { // nums = [0, 1, 2, 3] output = [false, false, false, false]
+  let output = new Array(nums.length).fill(false);
+  for(let i = 0; i < nums.length; i++) {
+    output[nums[i]] = true; //output = [true, true, true, true]
+  }
+
+  const index = output.findIndex(x => x === false);
+  
+  return index === -1 ? nums.length : index;
+
+}
+
+console.log(firstMissingInteger([0,1,2,3]))
