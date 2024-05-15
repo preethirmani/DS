@@ -23,3 +23,6 @@ var climbStairs = (n) => {
   return dp[n];
 
 }
+console.log(climbStairs(1));
+console.log(climbStairs(2));
+console.log(climbStairs(5));
