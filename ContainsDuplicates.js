@@ -49,3 +49,10 @@ function containsDuplicate2(nums) {
 console.log(containsDuplicate2([1,2,3,1]));
 console.log(containsDuplicate2([1,2,3,4]));
 console.log(containsDuplicate2([1,2,3,3]));
+
+let testMap = new Map();
+testMap.set('A',0);
+testMap.set('B',1);
+testMap.set('B',2);
+
+console.log(testMap)
