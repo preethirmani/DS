@@ -27,3 +27,25 @@ function containsDuplicate(nums) {
 console.log(containsDuplicate([1,2,3,1]));
 console.log(containsDuplicate([1,2,3,4]));
 console.log(containsDuplicate([1,2,3,3]));
+
+
+//Using hashmap
+
+function containsDuplicate2(nums) {
+  let numsMap = new Map();
+  numsMap.set(nums[0],0);
+  
+  for(let i = 1; i < nums.length ; i++) {
+    if(numsMap.has(nums[i])){
+      return true;
+    } else {
+      numsMap.set(nums[i],i)  
+    }
+     
+  }
+   return false;
+}
+
+console.log(containsDuplicate2([1,2,3,1]));
+console.log(containsDuplicate2([1,2,3,4]));
+console.log(containsDuplicate2([1,2,3,3]));
