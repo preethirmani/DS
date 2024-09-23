@@ -2,7 +2,7 @@ var groupAnagrams = function(strs) {
     const map = new Map();
     for(let str of strs) {
         const charCount = new Array(26).fill(0);
-       
+  
         for(let char of str) {
           charCount[char.charCodeAt(0) - 'a' .charCodeAt(0)]++ //e
            console.log(charCount);
