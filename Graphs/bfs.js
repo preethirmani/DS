@@ -1,31 +1,28 @@
+//graph as an adjacency list
+const graph = {
+  1 : [2, 3],
+  2 : [4],
+  3 : [4],
+  4 : []
+};
 
+function bfs(graph, start) {
+  const queue = [start];
+  const visited = new Set();
 
-function bfs (graph, source) {
-  const queue = [source];
-  while(queue.length > 0) {
-    const current = queue.shift();
-    console.log(current);
-    if(graph[current]) {
-      for(let neighbor of graph[current]) {
-        queue.push(neighbor)
-      }
+  while(queue . length > 0) {
+    const node = queue.shift();
+    if(! visited.has(node)) {
+      console.log(node);
+      visited.add(node);
+      graph[node].forEach(neighbor => {
+        if(!visited.has(neighbor)) {
+          queue.push(neighbor)
+        }
+      });
     }
   }
+  return visited;
 }
 
-
-
-//queue = [a, b, c, b, d, e, c, f, g]
-
-
-const graph = {
-  a : ['b', 'c'],
-  b : ['d', 'e'],
-  c : ['f', 'g'],
-  d : [],
-  e : [],
-  f : [],
-  g : []
-}
-
-bfs(graph, 'a');
+bfs(graph, 1);
