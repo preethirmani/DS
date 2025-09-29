@@ -27,3 +27,9 @@ function recursiveReverse(nums, offset) {
 
 console.log(reverseArray([1,2,3,4,5,6,7,8]));
 
+let arr = [[1 , 2 , 7 ,  8] ,
+           [3 , 4 , 1 ,  9] ,
+           [6 , 3 , 2 ,  1]  ]
+console.log('arr.length',arr.length);
+console.log('aar[0].length', arr[0].length);
+
