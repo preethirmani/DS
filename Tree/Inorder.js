@@ -12,10 +12,16 @@ const root = new TreeNode(1);
 root.left = new TreeNode(2);
 root.left.left = new TreeNode(4);
 root.left.right = new TreeNode(5);
+root.left.left.left = new TreeNode(9);
 
 root.right = new TreeNode(3);
 root.right.right = new TreeNode(6);
 console.log(root);
+console.log('**********root.left.left***********')
+console.log(root.left.left);
+console.log('**********root.left.left.left***********')
+console.log(root.left.left.left);
+
 
 
 function inorder(root) {
@@ -29,7 +35,7 @@ function inorder(root) {
 
 
 }
-
+console.log('INORDER')
 function inorderLoop(root) {
   let stack = [];
   let current = root;
@@ -40,7 +46,7 @@ function inorderLoop(root) {
     }
     current  = stack.pop();
     console.log(current.val);
-    current = current.right;
+     current = current.right;
   }
 }
 
